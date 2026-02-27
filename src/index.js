@@ -292,16 +292,20 @@ app.post('/api/extract', authMiddleware, async (req, res) => {
   }
 });
 
-// Iniciar servidor
-app.listen(PORT, async () => {
-    try {
-        await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS plan VARCHAR(50) DEFAULT 'free'`);
-        await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR(100)`);
-        await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS stripe_subscription_id VARCHAR(100)`);
-        console.log('✅ Verificação de banco de dados concluída.');
-    } catch (e) {
-        console.error('⚠️ Aviso: Não foi possível atualizar a tabela users. Verifique o banco de dados.', e.message);
-    }
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-    console.log(`UI Web disponível em http://localhost:${PORT}/`);
-});
+// Iniciar servidor somente se o arquivo for executado diretamente
+if (require.main === module) {
+    app.listen(PORT, async () => {
+        try {
+            await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS plan VARCHAR(50) DEFAULT 'free'`);
+            await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR(100)`);
+            await db.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS stripe_subscription_id VARCHAR(100)`);
+            console.log('✅ Verificação de banco de dados concluída.');
+        } catch (e) {
+            console.error('⚠️ Aviso: Não foi possível atualizar a tabela users. Verifique o banco de dados.', e.message);
+        }
+        console.log(`Servidor rodando em http://localhost:${PORT}`);
+        console.log(`UI Web disponível em http://localhost:${PORT}/`);
+    });
+}
+
+module.exports = app; // Adicionado para exportar para o Vercel Serverless
