@@ -119,7 +119,7 @@ app.post('/api/create-checkout-session', authMiddleware, async (req, res) => {
     res.json({ success: true, url: session.url });
   } catch (error) {
     console.error('Checkout error:', error);
-    res.status(500).json({ success: false, message: 'Erro ao criar checkout.' });
+    res.status(500).json({ success: false, message: 'Erro ao criar checkout: ' + error.message });
   }
 });
 
