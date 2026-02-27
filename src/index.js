@@ -31,8 +31,10 @@ app.get('/', (req, res) => {
 // Registro de Usuário
 app.post('/api/register', async (req, res) => {
   try {
-    const { email, password } = req.body;
-    if (!email || !password) return res.status(400).json({ success: false, message: 'Email e senha obrigatórios.' });
+    console.log('[API Register] body recebido no Express:', req.body);
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const { email, password } = body || {};
+    if (!email || !password) return res.status(400).json({ success: false, message: 'Email e senha obrigatórios. Body recebido: ' + JSON.stringify(body) });
 
     // Verifica se já existe
     const existingUser = await db.query('SELECT * FROM users WHERE email = $1', [email]);
@@ -57,7 +59,8 @@ app.post('/api/register', async (req, res) => {
 // Login de Usuário
 app.post('/api/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const { email, password } = body || {};
     if (!email || !password) return res.status(400).json({ success: false, message: 'Email e senha obrigatórios.' });
 
     const userRes = await db.query('SELECT * FROM users WHERE email = $1', [email]);

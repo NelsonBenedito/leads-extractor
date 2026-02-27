@@ -8,7 +8,8 @@ function authMiddleware(req, res, next) {
   }
 
   try {
-    const decodified = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET);
+    const secret = process.env.JWT_SECRET || 'secret-key-fallback';
+    const decodified = jwt.verify(token.replace('Bearer ', ''), secret);
     req.user = decodified; // { id: userId, email: userEmail }
     next();
   } catch (error) {
