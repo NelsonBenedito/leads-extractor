@@ -4,7 +4,8 @@
     "checkJs": false,
     "skipLibCheck": true,
     "target": "es2022",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noEmit": true
   },
   "exclude": [
     "node_modules",

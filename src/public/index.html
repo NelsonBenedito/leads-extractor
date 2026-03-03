@@ -198,52 +198,58 @@
             </div>
 
             <!-- Auth/User Actions -->
-            <div id="auth-section" class="flex items-center gap-3">
-                <button onclick="toggleAuthModal(true)"
-                    class="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white font-medium text-sm px-4 py-2 transition-colors">
-                    Fazer Login
-                </button>
-                <button onclick="toggleAuthModal(false)"
-                    class="bg-slate-900 dark:bg-indigo-500 hover:bg-slate-800 dark:hover:bg-indigo-600 text-white font-medium text-sm px-5 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2">
-                    Começar Grátis <i class="ph ph-arrow-right"></i>
-                </button>
-            </div>
-
-            <div id="user-section"
-                class="hidden items-center gap-3 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700/50 p-1.5 rounded-full custom-shadow">
-
-                <div class="flex items-center gap-2 pl-3">
-                    <span
-                        class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700/50 tracking-wide"
-                        id="user-plan-badge">FREE</span>
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-200 max-w-[120px] truncate"
-                        id="user-display"></span>
+            <div class="flex items-center gap-2">
+                <div id="auth-section" class="flex items-center gap-3">
+                    <button onclick="toggleAuthModal(true)"
+                        class="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white font-medium text-sm px-4 py-2 transition-colors">
+                        Fazer Login
+                    </button>
+                    <button onclick="toggleAuthModal(false)"
+                        class="bg-slate-900 dark:bg-indigo-500 hover:bg-slate-800 dark:hover:bg-indigo-600 text-white font-medium text-sm px-5 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2">
+                        Começar Grátis <i class="ph ph-arrow-right"></i>
+                    </button>
                 </div>
 
-                <button onclick="showPricing()" id="btn-upgrade-header"
-                    class="text-xs font-bold text-amber-700 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 border-amber-200 relative">
-                    <i class="ph-fill ph-crown"></i> PRO
-                    <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <span
-                            class="relative inline-flex rounded-full h-3 w-3 bg-red-500 text-[6px] text-white items-center justify-center font-bold">%</span>
-                    </span>
-                </button>
+                <div id="user-section"
+                    class="hidden items-center gap-3 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700/50 p-1.5 rounded-full custom-shadow">
 
+                    <div class="flex items-center gap-2 pl-3">
+                        <span
+                            class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700/50 tracking-wide"
+                            id="user-plan-badge">FREE</span>
+                        <span class="text-sm font-medium text-slate-700 dark:text-slate-200 max-w-[120px] truncate"
+                            id="user-display"></span>
+                    </div>
+
+                    <button onclick="showPricing()" id="btn-upgrade-header"
+                        class="text-xs font-bold text-amber-700 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 border-amber-200 relative">
+                        <i class="ph-fill ph-crown"></i> PRO
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span
+                                class="relative inline-flex rounded-full h-3 w-3 bg-red-500 text-[6px] text-white items-center justify-center font-bold">%</span>
+                        </span>
+                    </button>
+
+                    <button onclick="showSearches()"
+                        class="text-slate-600 dark:text-slate-300 hover:text-brand-600 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
+                        title="Meu Histórico">
+                        <i class="ph ph-clock-counter-clockwise text-lg"></i>
+                    </button>
+
+                    <button onclick="logout()"
+                        class="text-slate-600 dark:text-slate-300 hover:text-red-500 hover:bg-red-50 p-2 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-full transition-colors mr-1"
+                        title="Sair">
+                        <i class="ph ph-sign-out text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Theme Toggle -->
                 <button onclick="toggleTheme()"
                     class="text-slate-600 dark:text-slate-300 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
-                    title="Modo Escuro"><i id="theme-icon" class="ph ph-moon text-lg"></i></button>
-                <button onclick="showSearches()"
-                    class="text-slate-600 dark:text-slate-300 hover:text-brand-600 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
-                    title="Meu Histórico">
-                    <i class="ph ph-clock-counter-clockwise text-lg"></i>
-                </button>
-
-                <button onclick="logout()"
-                    class="text-slate-600 dark:text-slate-300 hover:text-red-500 hover:bg-red-50 p-2 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-full transition-colors mr-1"
-                    title="Sair">
-                    <i class="ph ph-sign-out text-lg"></i>
+                    title="Modo Escuro">
+                    <i id="theme-icon" class="ph ph-moon text-lg"></i>
                 </button>
             </div>
         </div>
@@ -742,15 +748,17 @@
             html.classList.add('dark');
         }
 
+        // Initialize Icon
+        const themeIconInit = document.getElementById('theme-icon');
+        if (themeIconInit) {
+            themeIconInit.className = theme === 'dark' ? 'ph ph-sun text-lg' : 'ph ph-moon text-lg';
+        }
+
         function toggleTheme() {
             html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                document.getElementById('theme-icon').className = 'ph ph-sun text-lg';
-            } else {
-                localStorage.setItem('theme', 'light');
-                document.getElementById('theme-icon').className = 'ph ph-moon text-lg';
-            }
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').className = isDark ? 'ph ph-sun text-lg' : 'ph ph-moon text-lg';
         }
 
         // ESTADO GLOBAL
