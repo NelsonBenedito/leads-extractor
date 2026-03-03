@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken');
 const authMiddleware = require('./middleware/auth');
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_fallback');
-const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID || 'price_1T5WW4ARnJXQ6e7Fr8xQ2WoW';
+const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID || 'price_1T6y0DARnJXQ6e7FeKVYNwcO';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

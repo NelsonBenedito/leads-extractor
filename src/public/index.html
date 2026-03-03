@@ -27,7 +27,7 @@
       "applicationCategory": "BusinessApplication",
       "offers": {
         "@type": "Offer",
-        "price": "49.00",
+        "price": "19.00",
         "priceCurrency": "BRL"
       },
       "description": "Extração de leads corporativos B2B direto do Google Maps com enriquecimento de dados e links sociais."
@@ -189,8 +189,14 @@
                 </div>
 
                 <button onclick="showPricing()" id="btn-upgrade-header"
-                    class="text-xs font-bold text-amber-700 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 border-amber-200">
+                    class="text-xs font-bold text-amber-700 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 border-amber-200 relative">
                     <i class="ph-fill ph-crown"></i> PRO
+                    <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span
+                            class="relative inline-flex rounded-full h-3 w-3 bg-red-500 text-[6px] text-white items-center justify-center font-bold">%</span>
+                    </span>
                 </button>
 
                 <button onclick="toggleTheme()"
@@ -554,14 +560,22 @@
             <div
                 class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center items-center text-center bg-white dark:bg-slate-800">
                 <div
-                    class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border-amber-200">
-                    Acesso PRO
+                    class="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border-amber-400 shadow-sm animate-bounce">
+                    Promoção de Lançamento
                 </div>
 
-                <div class="flex items-baseline justify-center gap-1 mb-2">
-                    <span class="text-xl font-bold text-slate-400 dark:text-slate-500">R$</span>
-                    <span class="text-6xl font-extrabold text-slate-900 dark:text-white tracking-tighter">49</span>
-                    <span class="text-lg font-medium text-slate-500 dark:text-slate-400">/mês</span>
+                <div class="flex flex-col items-center justify-center mb-6">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-xl font-medium text-slate-400 line-through decoration-red-500/50">R$ 49</span>
+                        <span
+                            class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">60%
+                            OFF</span>
+                    </div>
+                    <div class="flex items-baseline justify-center gap-1">
+                        <span class="text-xl font-bold text-brand-600 dark:text-brand-400">R$</span>
+                        <span class="text-6xl font-extrabold text-slate-900 dark:text-white tracking-tighter">19</span>
+                        <span class="text-lg font-medium text-slate-500 dark:text-slate-400">/mês</span>
+                    </div>
                 </div>
                 <p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Cancele quando quiser.
                     Sem fidelidade.</p>
